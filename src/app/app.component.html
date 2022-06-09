@@ -1,10 +1,16 @@
 <router-outlet></router-outlet>
 
 <div class="container">
-  <button type="button" class="btn btn-primary">Show positive balance</button>
-  <button type="button" class="btn btn-secondary">Show negative balance</button>
+  <button type="button" class="btn btn-primary" (click)="togglePositive()">Show positive balance</button>
+  <button type="button" class="btn btn-secondary" (click)="toggleNegative()">Show negative balance</button>
 
   <ul class="list-group mt-3">
-    <li *ngFor="let person of people; trackBy: trackByFn;" class="list-group-item">{{ person.name }} {{ person.balance }} kc</li>
+    <li
+      *ngFor="let person of people; trackBy: trackByFn;"
+      class="list-group-item"
+      [ngClass]="{ positive: showPositive && person.balance > 0, negative: showNegative && person.balance < 0 }"
+    >
+      {{ person.name }} {{ person.balance }} kc
+    </li>
   </ul>
 </div>

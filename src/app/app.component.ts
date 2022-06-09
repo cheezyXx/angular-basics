@@ -11,6 +11,9 @@ type Person = {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  showNegative = false;
+  showPositive = false;
+
   people: Person[] = [
     {
       name: "Josef",
@@ -37,6 +40,14 @@ export class AppComponent {
       balance: 1400,
     },
   ];
+
+  togglePositive() {
+    this.showPositive = !this.showPositive;
+  }
+
+  toggleNegative() {
+    this.showNegative = !this.showNegative;
+  }
 
   trackByFn(index: number) {
     return index;
