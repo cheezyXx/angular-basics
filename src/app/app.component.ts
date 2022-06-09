@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  name = "";
 
+  onKeyDown(event: KeyboardEvent) {
+    const { value } = event.target as HTMLInputElement;
+    this.name = value;
+  }
 }

@@ -1,1 +1,10 @@
 <router-outlet></router-outlet>
+
+<div class="container">
+  <h1>{{ name }}</h1>
+
+  <label for="name">Name</label>
+  <div class="input-group">
+    <input id="name" type="text" (keydown)="onKeyDown($event)">
+  </div>
+</div>
