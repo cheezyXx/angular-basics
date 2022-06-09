@@ -1,1 +1,10 @@
 <router-outlet></router-outlet>
+
+<div class="container">
+  <button type="button" class="btn btn-primary">Show positive balance</button>
+  <button type="button" class="btn btn-secondary">Show negative balance</button>
+
+  <ul class="list-group mt-3">
+    <li *ngFor="let person of people; trackBy: trackByFn;" class="list-group-item">{{ person.name }} {{ person.balance }} kc</li>
+  </ul>
+</div>
