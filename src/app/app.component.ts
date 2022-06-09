@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  food = ["Potato", "Strawberry", "Chocolate", "Meat", "Fish"];
 
+  trackByFn(_: number, food: string) {
+    return food;
+  }
 }
