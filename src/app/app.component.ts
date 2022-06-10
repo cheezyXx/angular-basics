@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   loggedIn = false;
+
+  onLogOut() {
+    this.loggedIn = false;
+  }
+
+  onLogin() {
+    this.loggedIn = true;
+  }
 }

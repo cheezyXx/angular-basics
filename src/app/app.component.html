@@ -2,11 +2,19 @@
 
 <div class="container" style="width: 18rem;">
   <div class="d-grid gap-2 my-3">
-    <button class="btn btn-success">Login</button>
-    <button class="btn btn-danger">Logout</button>
+    <button
+      *ngIf="!loggedIn"
+      class="btn btn-success"
+      (click)="onLogin()"
+    >Login</button>
+    <button
+      *ngIf="loggedIn"
+      class="btn btn-danger"
+      (click)="onLogOut()"
+    >Logout</button>
   </div>
 
-  <div class="user">
+  <div *ngIf="loggedIn" class="user">
     <div class="card">
       <img
         class="card-img-top"
