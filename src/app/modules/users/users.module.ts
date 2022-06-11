@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { UserListComponent } from "./pages/user-list.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   exports: [],
   declarations: [UserListComponent],
   providers: [],
