@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export enum ButtonVariant {
   PRIMARY = "PRIMARY",
@@ -17,6 +17,9 @@ export class ButtonComponent {
   @Input()
   variant = ButtonVariant.PRIMARY;
 
+  @Output()
+  outClick: EventEmitter<string> = new EventEmitter<string>();
+
   variants = ["btn-primary", "btn-secondary", "btn-danger", "btn-success"];
 
   get _variant() {
@@ -25,4 +28,7 @@ export class ButtonComponent {
     return found || this.variants[0];
   }
 
+  onClick() {
+    this.outClick.emit("Nice, I sent something outside");
+  }
 }
