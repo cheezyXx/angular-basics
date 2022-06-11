@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export enum ButtonVariant {
   PRIMARY = "PRIMARY",
@@ -14,6 +14,15 @@ export enum ButtonVariant {
 })
 export class ButtonComponent {
 
+  @Input()
+  variant = ButtonVariant.PRIMARY;
+
   variants = ["btn-primary", "btn-secondary", "btn-danger", "btn-success"];
+
+  get _variant() {
+    const currentVariant = this.variant.toLowerCase();
+    const found = this.variants.find(variant => variant.includes(currentVariant));
+    return found || this.variants[0];
+  }
 
 }
