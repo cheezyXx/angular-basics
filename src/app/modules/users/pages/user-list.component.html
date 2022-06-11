@@ -15,7 +15,7 @@
     <td>{{ user.lastName }}</td>
     <td>{{ user.birthday }}</td>
     <td>
-      <a class="btn btn-primary" href="#">Invoice</a>
+      <a [routerLink]="['/users', user.id, 'invoices']" class="btn btn-primary" href="#">Invoice</a>
     </td>
   </tr>
   </tbody>
