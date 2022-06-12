@@ -1,7 +1,13 @@
 <router-outlet></router-outlet>
 
+
 <div class="container">
-  <button class="btn btn-primary" [disabled]="!newTodo" (click)="onClick()">Add Todo</button>
+  <button
+    class="btn btn-primary"
+    [disabled]="!newTodo.name"
+    (click)="onClick()">
+    Add Todo
+  </button>
 
   <div class="mt-3">
     <label for="todo" class="form-label">Todo</label>
@@ -11,12 +17,24 @@
         class="form-control"
         id="todo"
         (keyup)="onKeyUp($event)"
-        [value]="newTodo"
+        [value]="newTodo.name"
       >
     </div>
   </div>
 
   <ul class="list-group">
-    <li *ngFor="let todo of todos" class="list-group-item">{{ todo }}</li>
+    <li *ngFor="let todo of todos" class="list-group-item">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          (click)="onDone(todo)"
+          [checked]="todo.done"
+        >
+        <label class="form-check-label" [ngClass]="{ done: todo.done }">
+          {{ todo.name }}
+        </label>
+      </div>
+    </li>
   </ul>
 </div>
